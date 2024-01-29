@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .box {
+            height: 85vh;
+            width: 70%;
+            background-color: rgb(127, 238, 127);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+        #nu2 {
+            height: 40px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #num {
+            height: 40px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .lab {
+            font-size: 30px;
+            margin: 10px;
+        }
+        #kel {
+            height: 40px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            height: 40px;
+            width: 150px;
+            border: 1px solid black;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .flex{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Temperature Converter</h1>
+        <label class="lab" for="num"> Celcius</label>
+        <input type="number" name="num" id="num">
+        <label class="lab" for="nu2"> Fahrenheit</label>
+        <input type="number" name="nu2" id="nu2"> <br>
+        <label class="lab" for="kelvin">kelvins</label>
+        <input type="number" name="kelvin" id="kel"><br>
+       <div class="flex">
+        <button onclick="change()">Try it</button><br>
+        <button onclick="refresh() ">refresh</button>
+       </div>
+    </div>
+
+    <script>
+        function change() {
+            // let a = document.getElementById('num').value;
+            // let b = a * (9 / 5) + (32);
+            // document.getElementById('nu2').value = b;
+            // let c = (a) * (1) + (273.15);
+            // document.getElementById('kel').value = c;
+
+            // let d = document.getElementById('nu2').value;
+            // let e = (d - 32) * (5 / 9);
+            // document.getElementById('num').value = e;
+            // let f = (d - 32) * (5 / 9) + 273.15;
+            // document.getElementById('kel').value=f;
+
+
+
+            let a = document.getElementById('num').value;
+            let b = document.getElementById('nu2').value;
+            let c = document.getElementById('kel').value;
+
+            if (a == "" && c == "") {
+                let d = document.getElementById('nu2').value;
+                let e = (d - 32) * (5 / 9);
+                document.getElementById('num').value = e;
+                let f = (d - 32) * (5 / 9) + 273.15;
+                document.getElementById('kel').value = f;
+            }
+            else if (b == "" && a == "") {
+                let g = document.getElementById('kel').value;
+                let h = (g - 273.15)
+                document.getElementById('num').value = h;
+                let i = (g - 273.15) * (9 / 5) + 32;
+                document.getElementById('nu2').value = i;
+
+            }
+            else if (b == "" && c == "") {
+                let a = document.getElementById('num').value;
+                let b = a * (9 / 5) + (32);
+                document.getElementById('nu2').value = b;
+                let c = (a) * (1) + (273.15);
+                document.getElementById('kel').value = c;
+            }
+
+            else {
+                alert('enter a valid input')
+            }
+        }
+        function refresh() {
+            document.getElementById('num').value = "";
+            document.getElementById('nu2').value = "";
+            document.getElementById('kel').value = "";
+
+        }
+
+    </script>
+</body>
+
+</html>
